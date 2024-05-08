@@ -1,4 +1,4 @@
-### Hi there 👋
+### Hi, I'm Joseph 👋
 
 - 🗒️ Where I write: https://josephbulger.com
 - 😄 Pronouns: He/Him

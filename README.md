@@ -6,6 +6,8 @@
 - 💬 Ask me about AWS, Terraform, CDKTF
 - 📫 Find me: [LinkedIn](https://www.linkedin.com/in/josephbulger/) @josephbulger.com @iosephus@techhub.social
 
+<a href="https://app.daily.dev/josephbulger"><img src="https://api.daily.dev/devcards/v2/ifCz1vatJvh7y616CbYBL.png?r=ote" width="356" alt="Joseph Bulger's Dev Card"/></a>
+
 <!--
 **josephbulger/josephbulger** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 

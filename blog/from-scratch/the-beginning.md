@@ -16,7 +16,7 @@ Your Root Account will be the only account that can be logged in outside your id
 
 ## Setup External Identity Provider
 
-You **really** need to connect your organization with an identity provider. Before you can do this you have to [enabled identity center](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html). In my case I'm going to be doing this with google workspaces, so I just followed [this documentation](https://docs.aws.amazon.com/singlesignon/latest/userguide/gs-gwp.html) and got up and running.
+You **really** need to connect your organization with an identity provider. Before you can do this you have to [enable Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html). While you go through this process AWS is going to ask you to enable Organizations as well, which you'll want to do. In my case I'm going to be doing this with google workspaces, so I just followed [this documentation](https://docs.aws.amazon.com/singlesignon/latest/userguide/gs-gwp.html) and got up and running.
 
 ### Customize the access portal url
 

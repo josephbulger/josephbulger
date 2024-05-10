@@ -4,7 +4,11 @@
 - 😄 Pronouns: He/Him
 - 🔭 I’m currently working on EKS clusters, a bunch of other AWS stuff, Terraform, AI / Machine Learning modeling / training
 - 💬 Ask me about AWS, Terraform, CDKTF
-- 📫 Find me: [LinkedIn](https://www.linkedin.com/in/josephbulger/) @josephbulger.com @iosephus@techhub.social
+- 📫 Find me:
+  - [LinkedIn](https://www.linkedin.com/in/josephbulger/)
+  - [@josephbulger.com](https://bsky.app/profile/josephbulger.com)
+  - [@iosephus@techhub.social](https://techhub.social/@iosephus)
+  - [on dev.to](https://dev.to/josephbulger)
 
 <a href="https://app.daily.dev/josephbulger"><img src="https://api.daily.dev/devcards/v2/ifCz1vatJvh7y616CbYBL.png?r=ote" width="356" alt="Joseph Bulger's Dev Card"/></a>
 

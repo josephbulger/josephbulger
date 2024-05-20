@@ -1,8 +1,8 @@
-Once we have our groups and users set up from our external identity provider we can move onto defining what permissions they should have. This is mostly straight forward, but we'll have to take a few detours along the way because of how groups work with the google workspace IDP.
+Once we have our groups and users set up from our external identity provider we can move on to defining what permissions they should have. This is mostly straightforward, but we'll have to take a few detours along the way because of how groups work with the Google Workspace IDP.
 
 ## Permission Sets
 
-The first thing we have to do is script out our permission sets. We will use to effectively connect IAM policies to our IDP groups. This will all be done in CDKTF.
+The first thing we have to do is script our permission sets. We will use these to connect IAM policies to our IDP groups. This will all be done in CDKTF.
 
 ```typescript
 const set = new SsoadminPermissionSet(scope, `${name}-admin`, {
@@ -15,7 +15,7 @@ There's not a lot to this. The ARN we are using here for the `instanceArn` actua
 
 ## Policies
 
-Now that we have our admin permission set, we have to actually give it an admin policy that our groups can then use.
+Now that we have our admin permission set, we have to actually give it an admin policy.
 
 ```typescript
 new SsoadminManagedPolicyAttachment(scope, `${name}-admin-policy`, {
@@ -31,11 +31,11 @@ With the access key active again, we can go ahead and `cdktf deploy` our stack, 
 
 ## Group Assignment
 
-With these new permissions we should be all set now to assign our groups those permissions and be on our way, but this is where we hit our first snag. We need to go into the identity center console as root and assign the group to our AWS account along with the admin permission set we just made, which we can do, but there's a problem. Because of how we had to make the groups in identity center, we aren't able to assign users to the group in the console. It has to be scripted. This is not something we should script for the root user, though, because managing permissions at this level would mean people would have to be logging into root all the time, which is a big problem. Instead, what I'm going to do instead is assign myself to the AWS account, my user was brought over automatically through the identity provider. I can set all that up in the console easily.
+With these new permissions we should be all set now to assign our groups those permissions and be on our way, but this is where we hit our first snag. We need to go into the identity center console as root and assign the group to our AWS account along with the admin permission set we just made, which we can do, but there's a problem. Because of how we had to make the groups in identity center, we aren't able to assign users to the group in the console. It has to be scripted. The root user shouldn't do this, though, because managing permissions at this level would mean people would have to be logging into root all the time, which is a big problem. Instead, what I'm going to do instead is assign myself to the AWS account. My user was brought over automatically through the identity provider, and I can set all that up in the console easily.
 
 ### Switching Users
 
-With that set up, I now have my user set up as an admin in the AWS account. I need to quickly set up the AWS CLI and [configure it with my sso](https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html). With that done, we're going to make a new stack that uses the admin profile to allocate infrastructure.
+With that set up, I now have my user assigned as an admin in the AWS account. Now it's time to configure AWS CLI [with my sso](https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html). With that done, we're going to make a new stack that uses the admin profile to allocate infrastructure.
 
 ### Account Assignment
 

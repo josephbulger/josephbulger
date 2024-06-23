@@ -1,0 +1,38 @@
+---
+author: joseph
+comments: false
+date: 2011-10-12 08:00:01
+layout: post
+slug: mental-floss-whats-the-problem-with-my-circle
+title: 'Mental Floss: What''s the problem with my Circle'
+wordpress_id: 769
+categories: [mental floss, solid]
+---
+
+I got into an interesting discussion about [SOLID ](/blog/2011/09/02/solid-principles-open-closed-principle/)principles with a fellow developer today, and it got me to thinking about a common problem I've seen come up and I wanted to try and touch on it.<!-- more -->
+
+So first things first, let's go over some math and set up the problem space.
+
+You have an [Ellipse](http://en.wikipedia.org/wiki/Ellipse). You have a [Circle](http://en.wikipedia.org/wiki/Circle). A Circle is a special kind of Ellipse. Specifically, an Ellipse has a major axis and a minor axis, and a Circle is special because it's major and minor axis are equivalent in their length.
+
+So when a developer initially goes to model these objects, you typically would see something like this:
+
+{% gist 1279017 BadEllipse.cs %}
+
+I see this implementation a lot. When asked how this supports SOLID principles, I get the following a lot of the time:
+
+It supports [OCP ](/blog/2011/09/02/solid-principles-open-closed-principle/)because I can override any of the properties or the methods. Ok good.
+
+It supports [SRP ](/blog/2011/09/16/solid-principles-single-responsibility-principle/)because the class is only responsible for knowing things about Ellipse. Ok good.
+
+And there are some other ones, but then we veer into trying to extend this model with the special Circle, and that's where things really start to break down. I've seen a lot of variations about how this goes down, but I'm going to summarize all of them with this definition:
+
+{% gist 1279017 BadCircle.cs %}
+
+What happens here is a new property is introduced so that the users know that Circles are special because they have a Radius. Then when we calculate the Area, we override the function that calculates the area and we use the radius instead.
+
+So someone would use it like this:
+
+{% gist 1279017 BadRunner.cs %}
+
+So what's the problem with this? Think about it an tomorrow I'll post my proposed solution.

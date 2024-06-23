@@ -127,7 +127,7 @@ export class DevOpsStack extends TerraformStack {
 
 ## Github Actions
 
-Ok now we're ready to wrap this up. Let's change the iac workflow we made when we set up our [OIDC providers](https://www.josephbulger.com/blog/from-scratch-oidc-providers) so that it actually deploys our stacks now.
+Ok now we're ready to wrap this up. Let's change the iac workflow we made when we set up our [OIDC providers](https://www.josephbulger.com/blog/from-scratch-oidc-providers) so that it actually deploys our devops stack now.
 
 We're going to change this:
 
@@ -151,7 +151,11 @@ to this:
         workingDirectory: ./aws
 ```
 
-This will deploy the new `devops` stack we just made. We can also add more steps to deploy all the `account` stack as well doing the same thing but just changing the `stackName` to match. I'm not going to add the root stack in the workflow, though, because making modifications to the root stack should only be done by someone with the root credentials and we will never be sharing that anywhere in github (even as a secret).
+This will deploy the new `devops` stack we just made.
+
+### What about the Account Stack?
+
+You may be wondering why can't we do the same thing for the `account` stack? The reason we don't deploy the account stack in github is because we limited the permissions on the OIDC provider to not allow it to change OIDC permissions. However, in order for github actions to deploy the `account` stack, those are exactly the permissions it would need. In the future I might split out the other provisioned infra that's currently living in that stack to another stack so we can deploy those other things in github, but for now I'm satisfied leaving it where it is because it's not complex enough for me to worry about it. I'm also not going to add the root stack in the workflow, either, because making modifications to the root stack should only be done by someone with the root credentials and we will never be sharing that anywhere in github (even as a secret).
 
 ## Another Worflow: Planning
 
